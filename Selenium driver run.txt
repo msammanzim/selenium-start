@@ -1,0 +1,11 @@
+from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
+path="C:/Users/progoti/chromedriver.exe"
+driver=webdriver.Chrome(path)
+driver.get("http://www.google.com") #url
+assert "Google" in driver.title #found error to use assert and google is title or alt name
+elem = driver.find_element_by_name("q") #element name
+elem.clear() #clear
+elem.send_keys("M Samman Zim") #search name
+elem.send_keys(Keys.RETURN) #keys return
+assert "No results found." not in driver.page_source
